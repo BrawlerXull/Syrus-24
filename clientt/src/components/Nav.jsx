@@ -42,6 +42,9 @@ function Nav() {
             <Link to="/create" className="block mt-4 lg:inline-block lg:mt- hover:text-white  text-white mr-4">
               Create
             </Link>
+            <Link to="/about" className="block mt-4 lg:inline-block lg:mt- hover:text-white  text-white mr-4">
+              About
+            </Link>
             <a href="/view" className="block mt-4 lg:inline-block lg:mt-0  text-white hover:text-white">
               View
             </a>

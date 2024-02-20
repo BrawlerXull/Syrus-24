@@ -5,5 +5,24 @@
 
 body {
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-    background-color: #080201;
+    background-color: #000000;
+}
+
+@layer utilities {
+    .text-gradient-purple-pink {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent; /* Hide the original text color */
+        background-image: linear-gradient(to right, purple, rgb(108, 36, 159) , blue , pink );
+    }
+    .text-gradient-purple-pink-2 {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent; /* Hide the original text color */
+        background-image: linear-gradient(to right, purple, pink );
+    }
+}
+
+.right-section {
+    font-family: "Trirong", serif;
 }
