@@ -4,9 +4,32 @@ import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom
 import Metamask from './Metamask';
 import Create from './Pages/Create';
 import Minting from './Pages/Minting';
+import { useState } from 'react';
+import {ethers} from 'ethers'
 
 
 function App() {
+  const [provider, setProvider]=useState(null)
+  const [account, setAccount]=useState(null)
+  const [isConnected, setIsConnected]=useState(false);
+  async function connectWallet(){
+    if(window.ethereum){
+      try{
+        const provider= new ethers.providers.Web3Provider(window.ethereum)
+        setProvider(provider)
+        await provider.send("eth_requestAccounts", []);
+        const signer= provider.getSigner()
+        const address=await signer.getAddress()
+        setAccount(address)
+        console.log("Metamask Connnected " + address)
+        setIsConnected(true)
+      }catch(err){
+        console.log(err)
+      }
+    }else{
+      console.error("Metamask not detected")
+    }
+  }
   return (
     <div className="App">
       <Router>
@@ -14,8 +37,8 @@ function App() {
         <Route path='/' element={<Nav/>} ele/>
         <Route path='/create' element={<Create/> }/>
         <Route path='/create/minting' element={<Minting/>}/>
-        <Route path='/wallet' element={<Metamask/>}/>
         </Routes>
+        <button></button>
         
       </Router>
       {/* <Nav/>   */}
