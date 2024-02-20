@@ -12,9 +12,6 @@ function Nav() {
             <Link to="/new">New</Link>
             <Link to="/create">Create</Link>
             <Link to="/learn">Learn</Link>
-
-            
-             
         </div>
         <div className="nav-middle">
             <input type="text" placeholder='Search' />
