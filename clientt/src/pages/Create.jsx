@@ -1,6 +1,6 @@
 import React, { useState  } from 'react'
 import "./Css/Create.css"
-import image from "../Images/nft.png"
+import image from "../assets/balldog.png"
 import Minting from './Minting'
 import { useNavigate } from 'react-router-dom';
 
