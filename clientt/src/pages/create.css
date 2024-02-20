@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Trirong");
+
+#nft-title {
+    font-family: "Trirong", serif;
+}
+.minting{
+    background-color: #131313;
+    height: 100vh;
+    color: #ffff;
+    
+}
+.minting h1{
+    font-size: 50px;
+    padding-top:10px;
+    padding-left: 200px;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .left{
+    width: 50%;
+    padding: 340px 0px 0px 110px;
+
+}
+.input-value{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding:5px;
+    max-width: 500px;
+    
+}
+.input-value textarea {
+    resize: none;
+}
+/* typr = number  ka webkit hide krna hai*/
+
+.input-value input ,textarea {
+    color: #131313;
+    height: 37px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.content .right{
+    width: 50%;
+    padding-top: 50px;
+}
