@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
+import { Link } from 'react-router-dom';
 
 function Nav() {
   const [provider, setProvider] = useState(null);
@@ -38,9 +39,9 @@ function Nav() {
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
-            <a href="/create" className="block mt-4 lg:inline-block lg:mt- hover:text-white  text-white mr-4">
+            <Link to="/create" className="block mt-4 lg:inline-block lg:mt- hover:text-white  text-white mr-4">
               Create
-            </a>
+            </Link>
             <a href="/view" className="block mt-4 lg:inline-block lg:mt-0  text-white hover:text-white">
               View
             </a>
