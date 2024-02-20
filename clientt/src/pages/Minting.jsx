@@ -102,7 +102,7 @@ function Minting() {
 
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center ">
+    <div className="flex flex-col md:flex-row items-center justify-center minting">
       <div className='justify-center '>
         <img src={dogPng} alt="" className=" h-[600px]  mt-40" />
       </div>

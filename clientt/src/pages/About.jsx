@@ -6,7 +6,7 @@ function About() {
     }
     return (
 
-        <div>
+        <div className='mt-20'>
             <div className='text-white flex justify-center items-center mb-40 right-section'>
                 <img src={monkeyPng} className='h-[700px]' alt="" />
                 <div className>
