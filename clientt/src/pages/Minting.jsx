@@ -3,6 +3,7 @@ import dogPng from "../assets/dog.png";
 import "../pages/create.css";
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 import { ethers } from 'ethers';
+import axios from 'axios'
 import { NFTStorage, File } from 'nft.storage';
 
 const NFT_STORAGE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDlGM2Q5YzZGRjFCNjEzNDZEYzU4Njk2NTE3NTU0RkUwMkQ0NURFNEMiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTcwODQxNDU5ODQ3NywibmFtZSI6Im5mdCJ9.2LSFFAkB7peugZbevlG0i9rWXqfy_FWnvF-qzlfx1BU';
@@ -35,16 +36,22 @@ function Minting() {
   const uploadToIPFS = async () => {
     if (!selectedFile) return;
     try {
-      const nftstorage = new NFTStorage({ token: NFT_STORAGE_KEY });
-      const file = new File([selectedFile], selectedFile.name, { type: selectedFile.type });
-      const result = await nftstorage.store({
-        name,
-        description,
-        image: file
+      const resFile = await axios({
+        method : "post",
+        url : "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        data : {
+          file : selectedFile,
+          name : name,
+          description : description
+        },
+        headers : {
+          pinata_api_key : `568009af9408ff295278`,
+          pinata_secret_api_key : `5a4f6a57254e60dab0a8a20a9d5ecce812c6b4473a98bcd92158cfd1d91a8dd1`,
+          'Content-Type' : 'multipart/form-data'
+        }
       });
-      console.log(result);
-      setResult(result)
-      createNFT(result.ipnft);
+      const uri = resFile.data.IpfsHash;
+      createNFT(uri);
     } catch (error) {
       console.log("ipfs image upload error: ", error);
     
@@ -74,7 +81,7 @@ function Minting() {
   const mintThenList = async (result) => {
     try {
       // console.log(result['data'])
-      const uri= `https://ipfs.io/ipfs/${result}`
+      const uri= `https://gateway.pinata.cloud/ipfs/${result}`
       console.log(uri)
     // return
     console.log("res " + result)
@@ -136,3 +143,11 @@ function Minting() {
 }
 
 export default Minting;
+
+
+
+
+
+// API Key: 568009af9408ff295278
+//  API Secret: 5a4f6a57254e60dab0a8a20a9d5ecce812c6b4473a98bcd92158cfd1d91a8dd1
+//  JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI5Y2U4MDI0MS0wMjBmLTQ1MmMtOGFjOS05NTVlNDU2ZmNmMDkiLCJlbWFpbCI6ImNoYXVkaGFyaS5jaGlubWF5MTIzNDVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjU2ODAwOWFmOTQwOGZmMjk1Mjc4Iiwic2NvcGVkS2V5U2VjcmV0IjoiNWE0ZjZhNTcyNTRlNjBkYWIwYThhMjBhOWQ1ZWNjZTgxMmM2YjQ0NzNhOThiY2Q5MjE1OGNmZDFkOTFhOGRkMSIsImlhdCI6MTcwODQ0NzEzMH0.7KPGthSxM-LHAhampLsczk_RrJj7QKgrhBI6vSOcQ-0

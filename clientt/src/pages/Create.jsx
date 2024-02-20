@@ -13,6 +13,10 @@ function Create() {
     // Redirect to the Minting page
     navigate('/create/minting');
   };
+  const launch = () => {
+    // Redirect to the Minting page
+    navigate('/create/launch');
+  };
   return (
     <div className='create'>
 
@@ -24,7 +28,7 @@ function Create() {
                 <h2>Mint an NFt</h2>
                 <p>Create your own Collection here, just Mint it!</p>
             </button>
-            <button className='launch'>
+            <button className='launch' onClick={launch}>
                 <h2>Launch NFT</h2>
                 <p>Drop your Collection here!</p>
                 </button>
