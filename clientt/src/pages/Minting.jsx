@@ -37,24 +37,24 @@ function Minting() {
     if (!selectedFile) return;
     try {
       const resFile = await axios({
-        method : "post",
-        url : "https://api.pinata.cloud/pinning/pinFileToIPFS",
-        data : {
-          file : selectedFile,
-          name : name,
-          description : description
+        method: "post",
+        url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        data: {
+          file: selectedFile,
+          name: name,
+          description: description
         },
-        headers : {
-          pinata_api_key : `568009af9408ff295278`,
-          pinata_secret_api_key : `5a4f6a57254e60dab0a8a20a9d5ecce812c6b4473a98bcd92158cfd1d91a8dd1`,
-          'Content-Type' : 'multipart/form-data'
+        headers: {
+          pinata_api_key: `568009af9408ff295278`,
+          pinata_secret_api_key: `5a4f6a57254e60dab0a8a20a9d5ecce812c6b4473a98bcd92158cfd1d91a8dd1`,
+          'Content-Type': 'multipart/form-data'
         }
       });
       const uri = resFile.data.IpfsHash;
       createNFT(uri);
     } catch (error) {
       console.log("ipfs image upload error: ", error);
-    
+
     }
     // ipfs.add(file, (err, result) => {
     //   if (err) {
@@ -81,31 +81,33 @@ function Minting() {
   const mintThenList = async (result) => {
     try {
       // console.log(result['data'])
-      const uri= `https://gateway.pinata.cloud/ipfs/${result}`
+      const uri = `https://gateway.pinata.cloud/ipfs/${result}`
       console.log(uri)
-    // return
-    console.log("res " + result)
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send("eth_requestAccounts", []);
-    const signer = provider.getSigner();
-    const nft = new ethers.Contract(nft_address, nft_abi, signer);
-    console.log(nft.address);
-    const marketplace = new ethers.Contract(marketplace_address, marketplace_abi, signer);
-    await (await nft.mint(uri)).wait();
-    const id = await nft.tokenCount();
-    await (await nft.setApprovalForAll(marketplace.address, true)).wait();
-    const listingPrice = ethers.utils.parseEther(price.toString());
-    await (await marketplace.makeNFT(nft.address, id, listingPrice, donation, royalty)).wait();
-    console.log("suc");
-  }catch(err){console.log(err)}
+      // return
+      console.log("res " + result)
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      const nft = new ethers.Contract(nft_address, nft_abi, signer);
+      console.log(nft.address);
+      const marketplace = new ethers.Contract(marketplace_address, marketplace_abi, signer);
+      await (await nft.mint(uri)).wait();
+      const id = await nft.tokenCount();
+      await (await nft.setApprovalForAll(marketplace.address, true)).wait();
+      const listingPrice = ethers.utils.parseEther(price.toString());
+      await (await marketplace.makeNFT(nft.address, id, listingPrice, donation, royalty)).wait();
+      console.log("suc");
+    } catch (err) { console.log(err) }
   }
-  
+
 
   return (
-    <div className="flex justify-center">
-      <img src={dogPng} alt="" className=" h-100 mr-48 mt-40" />
+    <div className="flex flex-col md:flex-row items-center justify-center ">
+      <div className='justify-center '>
+        <img src={dogPng} alt="" className=" h-[600px]  mt-40" />
+      </div>
       <div className="justify-center">
-        <div className="text-4xl font-bold text-white  ml-36 mt-60" id="nft-title">
+        <div className="text-4xl font-bold text-white  ml-36 mt-28" id="nft-title">
           Create your NFTs
         </div>
         <div className="mt-10">
@@ -128,14 +130,16 @@ function Minting() {
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minting</label>
           <input type="number" onChange={(e) => setDonation(parseFloat(e.target.value))} id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" Fixed Donation %" required />
         </div>
-        
-        <div className="flex">
-        <div className="mt-10  " >
-          <input type="file" onChange={handleFileChange} className=" border border-white" />
-        </div>
-        <button onClick={uploadToIPFS} variant="primary" size="lg" className="text-white border rounded-lg p-3 border-white mt-7">
-          Create & List NFT!
-        </button>
+
+        <div className="flex flex-col">
+
+
+          <input type="file" onChange={handleFileChange} className=" border border-white text-white mt-6 w-60" />
+
+          <button onClick={uploadToIPFS} variant="primary" size="lg" className="text-white border rounded-lg p-3 border-white mt-7">
+            Create & List NFT!
+          </button>
+
         </div>
       </div>
     </div>
