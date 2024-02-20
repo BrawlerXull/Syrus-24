@@ -1,0 +1,50 @@
+.create{
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    background-color: #131313;
+    color: #ffff;
+    overflow: hidden;
+    
+}
+.create .left{
+    display: flex;
+    flex-direction: column;
+    text-align:left;
+    gap: 15px;
+    width: 50%;
+    padding: 340px 0px 0px 110px;
+}
+.left h1{
+    font-size: 50px;
+    padding-left: 5px;
+    
+}
+.left .btns{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+.left button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    padding: 17px 15px ;
+    height: 100px;
+    font-size: medium;
+    border-radius: 10px;
+    color: #ffff;
+    background-color: #252525;
+    border-style: none;
+    
+    
+}
+
+.create .right{
+    width: 50%;
+}
+.right img{
+    height: 100vh;
+}
