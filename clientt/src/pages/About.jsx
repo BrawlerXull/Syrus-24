@@ -21,8 +21,8 @@ function About() {
             <div id="raodmap" className="container-md roadmap flex flex-col  text-white" >
                 <h4 className="text-heading text-center mb-5 text-4xl" >Our Model</h4>
                 <p style={{ textAlign: "left" }} className=' m-6 border-2    rounded-lg' >
-                    <div className='m-6'>
-                        <span className='text-4xl text-gradient-purple-pink-2'>Art Generation</span><br />
+                    <div className='m-12'>
+                        <span className='text-4xl text-gradient-purple-pink-2'>Art Generation</span>
                         <h1 className='text-2xl'>People can mint thier NFTs.</h1>
                     </div>
                 </p>
