@@ -2,6 +2,7 @@ import React from 'react';
 import monkeyPng from '../assets/dog.png'
 function About() {
     function handleClick(){
+        window.open('https://en.wikipedia.org/wiki/Non-fungible_token#:~:text=A%20non%2Dfungible%20token%20(NFT,to%20be%20sold%20and%20traded.', '_blank');
 
     }
     return (
@@ -35,7 +36,7 @@ function About() {
                 <p style={{ textAlign: "left" }} className=' m-6 border-2    rounded-lg'>
                     <div className='m-12'>
                         <span className='text-4xl text-gradient-purple-pink-2'>Sale</span><br />
-                        <h1 className='text-2xl'>Anyone can bye the NFTs anonymously</h1>
+                        <h1 className='text-2xl'>Anyone can buy the NFTs anonymously</h1>
                     </div>
                 </p>
                 <p style={{ textAlign: "right" }} className=' m-6 border-2    rounded-lg'>
@@ -50,6 +51,10 @@ function About() {
                         <h1 className='text-2xl'>Owner will get some royalties on every buying</h1>
                     </div>
                 </p>
+            </div>
+            <div className='justify-center flex mb-10 mt-10'>
+                <h1 className='text-2xl text-white'>Made with 💖 by </h1>
+                <div className='text-2xl text-gradient-purple-pink-2 ml-2'>Linear Sorters</div>
             </div>
         </div>
     )
