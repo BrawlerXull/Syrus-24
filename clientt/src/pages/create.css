@@ -4,6 +4,9 @@
 #nft-title {
     font-family: "Trirong", serif;
 }
+#normie-title {
+    font-family: "Kode Mono", monospace;
+}
 .minting{
     background-color: #131313;
     height: 100vh;
