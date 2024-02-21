@@ -99,6 +99,7 @@ contract Marketplace {
             msg.sender
         );
 
+        
     }
 
 
@@ -118,6 +119,14 @@ contract Marketplace {
 
     function getNft() view external returns(Item[] memory){
         return owned_nft[msg.sender];
+    }
+
+    function getAllNft() view external returns(Item[] memory){
+        Item[] memory _items;
+        for (uint i=1; i<=itemCount;i++){
+            _items[i-1]=(items[i]);
+        }
+        return _items;
     }
 
     function getProfit(uint _itemId) view internal returns(uint){

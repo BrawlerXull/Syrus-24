@@ -144,6 +144,71 @@ const marketplace_abi=[
   },
   {
     "inputs": [],
+    "name": "getAllNft",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "nft",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "prevPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address payable",
+            "name": "seller",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "toBeSold",
+            "type": "bool"
+          },
+          {
+            "internalType": "address payable",
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "percentageDonated",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "royaltyPercentage",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Marketplace.Item[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getNft",
     "outputs": [
       {
@@ -943,6 +1008,6 @@ const nft_abi=[
     }
   ]
 
-  const nft_address='0x6417EdF5F580C4ef8ccdfAd15e28f1c21d2dd40A'
-  const marketplace_address='0x9fEddFef1C9259841e5b53d3AEbc3c117257D783'
+  const nft_address='0xEA375b6d03be38FF7C65cf87fB5eA1BeE00622E3'
+  const marketplace_address='0x6104e54Ff28392beFC6eEcFC282aD4bc4Ef26018'
   export {nft_abi, marketplace_abi, nft_address, marketplace_address}

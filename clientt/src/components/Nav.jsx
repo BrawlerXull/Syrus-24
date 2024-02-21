@@ -41,7 +41,7 @@ function Nav() {
       await provider.send('eth_requestAccounts', []);
       const signer = provider.getSigner();
       const marketplace = new ethers.Contract(marketplace_address, marketplace_abi, signer);
-      const items = await marketplace.getNft();
+      const items = await marketplace.getAllNft();
       const nft = new ethers.Contract(nft_address, nft_abi, signer);
 
       const itemIdNumber = itemId.toNumber();
