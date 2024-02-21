@@ -20,7 +20,7 @@ function About() {
                 
             </div>
             <div id="raodmap" className="container-md roadmap flex flex-col  text-white" >
-                <h4 className="text-heading text-center mb-5 text-4xl" >Our Model</h4>
+                <h4 className="text-heading text-center mb-5 text-5xl text-gradient-purple-pink-2" >Our Model</h4>
                 <p style={{ textAlign: "left" }} className=' m-6 border-2    rounded-lg' >
                     <div className='m-12'>
                         <span className='text-4xl text-gradient-purple-pink-2'>Art Generation</span>
