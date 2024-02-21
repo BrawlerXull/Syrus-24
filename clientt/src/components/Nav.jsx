@@ -129,7 +129,7 @@ function Nav() {
               <img src={urls[index]} alt="" className='rounded-lg' />
             </div>
             <div className='flex justify-center items-center flex-col text-center '>
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.price.toString()}</h5>
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{parseFloat(item.price.toString()) / 1e18}</h5>
               <button onClick={() => buy(item.itemId)} variant="primary" size="lg" className="text-white border rounded-lg p-3 border-white mt-3 mb-3 w-20">
                 Buy
               </button>
