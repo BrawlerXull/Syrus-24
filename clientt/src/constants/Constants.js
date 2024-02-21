@@ -117,24 +117,6 @@ const marketplace_abi=[
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_itemId",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_price",
-        "type": "uint256"
-      }
-    ],
-    "name": "Sell",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "feeAccount",
     "outputs": [
@@ -155,71 +137,6 @@ const marketplace_abi=[
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getAllNft",
-    "outputs": [
-      {
-        "components": [
-          {
-            "internalType": "uint256",
-            "name": "itemId",
-            "type": "uint256"
-          },
-          {
-            "internalType": "contract IERC721",
-            "name": "nft",
-            "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "tokenId",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "prevPrice",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "price",
-            "type": "uint256"
-          },
-          {
-            "internalType": "address payable",
-            "name": "seller",
-            "type": "address"
-          },
-          {
-            "internalType": "bool",
-            "name": "toBeSold",
-            "type": "bool"
-          },
-          {
-            "internalType": "address payable",
-            "name": "creator",
-            "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "percentageDonated",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "royaltyPercentage",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct Marketplace.Item[]",
-        "name": "",
-        "type": "tuple[]"
       }
     ],
     "stateMutability": "view",
@@ -1026,6 +943,6 @@ const nft_abi=[
     }
   ]
 
-  const nft_address='0x2c1cff538aBDACFCbDe3641a94D8397D48cA078d'
-  const marketplace_address='0xfeFa2A89590A9464F6b0e7730944297Dd53A744f'
+  const nft_address='0x6417EdF5F580C4ef8ccdfAd15e28f1c21d2dd40A'
+  const marketplace_address='0x9fEddFef1C9259841e5b53d3AEbc3c117257D783'
   export {nft_abi, marketplace_abi, nft_address, marketplace_address}

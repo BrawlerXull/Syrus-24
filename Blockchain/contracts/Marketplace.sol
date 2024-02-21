@@ -56,7 +56,7 @@ contract Marketplace {
             0,
             _price,
             payable(msg.sender),
-            false,
+            true,
             payable(msg.sender),
             _percentageDonated,
             _royalty
@@ -101,21 +101,6 @@ contract Marketplace {
 
     }
 
-    function Sell(uint _itemId, uint _price) external payable{
-        require(_itemId > 0 && _itemId <= itemCount, "item doesn't exist");
-        Item storage item = items[_itemId];
-        require(item.seller==msg.sender);
-        item.toBeSold= true;
-        item.prevPrice=item.price;
-        item.price=_price;
-        emit Offered(
-            itemCount,
-            address(item.nft),
-            _itemId,
-            _price,
-            msg.sender
-        );
-    }
 
     function removeNFT(uint _itemId) external{
         require(_itemId > 0 && _itemId <= itemCount, "item doesn't exist");

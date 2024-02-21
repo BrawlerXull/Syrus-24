@@ -45,7 +45,6 @@ function Nav() {
       const nft = new ethers.Contract(nft_address, nft_abi, signer);
 
       const itemIdNumber = itemId.toNumber();
-      //const item =
       await marketplace.Buy(itemIdNumber, {value: marketplace.getTotalPrice(itemIdNumber)});
       console.log("succ it baby");
     } catch (e) {
