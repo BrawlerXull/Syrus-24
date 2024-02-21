@@ -45,8 +45,8 @@ function Nav() {
       const nft = new ethers.Contract(nft_address, nft_abi, signer);
 
       const itemIdNumber = itemId.toNumber();
-
-      await marketplace.Buy(itemIdNumber);
+      //const item =
+      await marketplace.Buy(itemIdNumber, {value: marketplace.getTotalPrice(itemIdNumber)});
       console.log("succ it baby");
     } catch (e) {
       console.log("error deleting" + e);
@@ -122,7 +122,7 @@ function Nav() {
           )}
         </div>
       </nav>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 p-10">
         {items.map((item, index) => (
           <div key={index} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className="p-5">

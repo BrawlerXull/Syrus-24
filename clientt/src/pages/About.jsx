@@ -8,9 +8,9 @@ function About() {
     return (
 
         <div className='mt-20'>
-            <div className='text-white flex justify-center items-center mb-40 right-section'>
+            <div className='text-white lg:flex justify-center  items-center mb-40 right-section'>
                 <img src={monkeyPng} className='h-[700px]' alt="" />
-                <div className>
+                <div className='sm:pl-20 md:pt-12 sm:pt-12'>
                     <h1 className=' text-gradient-purple-pink text-9xl '>NFTs</h1>
                     <h3 className='w-[80%] text-2xl'>Non-fungible tokens are unique blockchain-based tokens that represent ownership of a digital or physical asset. </h3>
                     <button onClick={handleClick} className="h-10 px-6 font-semibold rounded-md border border-slate-200 text-white mt-10" type="button">

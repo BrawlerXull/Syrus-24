@@ -93,14 +93,41 @@ function Launch() {
     console.log("url" + urls);
   }
 
-  useEffect(() => {
+  useEffect(async() => {
+    console.log("yay");
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send('eth_requestAccounts', []);
+    const signer = provider.getSigner();
+    const marketplace = new ethers.Contract(marketplace_address, marketplace_abi, signer);
+    const items = await marketplace.getNft();
+    const nft = new ethers.Contract(nft_address, nft_abi, signer);
+    
+    const eventFilter = marketplace.filters.Offered(null, null, null, null, null); 
+
+    const eventCallback = async (from, to, tokenId, price, seller, event) => {
+
+      console.log('Offered event emitted:', { from, to, tokenId, price, seller, event });
+    };
+
+    const onEvent = async (log) => {
+      const { from, to, tokenId, price, seller } = log.args;
+      const event = log.event;
+      await eventCallback(from, to, tokenId, price, seller, event);
+    };
+
+    marketplace.on(eventFilter, onEvent); 
+
+    
     listIte()
+    return () => {
+      marketplace.off(eventFilter, onEvent); 
+    };
   }, []);
   return (
     <div className='flex justify-center text-white items-center flex-col'>
       <h1 className=' text-white text-7xl mt-10 text-gradient-purple-pink-2  ' id='normie-title'>Hello, Normie</h1>
       <h1 className=' text-white text-5xl mt-10 text-gradient-purple-pink-2  ' id='normie-title'>Here are your NFTs</h1>
-      <div className="grid grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-4 gap-8 p-10 mt-8">
         {items.map((item, index) => {
           return isPresent(urls[index]) ? (
             <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
