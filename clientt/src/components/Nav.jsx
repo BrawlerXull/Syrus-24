@@ -40,12 +40,12 @@ function Nav() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       await provider.send('eth_requestAccounts', []);
       const signer = provider.getSigner();
-      const marketplace = new ethers.Contract(marketplace_address, marketplace_abi, signer);
+      const marketplace = new ethers.Contract(marketplace_address, marketplace_abi, signer );
       const items = await marketplace.getAllNft();
       const nft = new ethers.Contract(nft_address, nft_abi, signer);
 
       const itemIdNumber = itemId.toNumber();
-      await marketplace.Buy(itemIdNumber, {value: marketplace.getTotalPrice(itemIdNumber)});
+      await marketplace.Buy(itemIdNumber, {value: marketplace.getTotalPrice(itemIdNumber) , gasLimit: ethers.BigNumber.from(9999999) },);
       console.log("succ it baby");
     } catch (e) {
       console.log("error deleting" + e);
@@ -128,7 +128,7 @@ function Nav() {
               <img src={urls[index]} alt="" className='rounded-lg' />
             </div>
             <div className='flex justify-center items-center flex-col text-center '>
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{parseFloat(item.price.toString()) / 1e18}</h5>
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{parseFloat(item.price.toString())}</h5>
               <button onClick={() => buy(item.itemId)} variant="primary" size="lg" className="text-white border rounded-lg p-3 border-white mt-3 mb-3 w-20">
                 Buy
               </button>
