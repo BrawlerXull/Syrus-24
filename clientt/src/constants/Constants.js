@@ -1008,6 +1008,6 @@ const nft_abi=[
     }
   ]
 
-  const nft_address='0x0cf73161f420F76B8734F70975aA594F3D623D06'
-  const marketplace_address='0x7F170bC00D9833de3931a48F5A85FBA42744b842'
+  const nft_address='0xF7Cd9eb4Cc83d7247811557075ed06163b96e48E'
+  const marketplace_address='0xF699A88FfC3ee04e30aDacDa0715fa39452DBE43'
   export {nft_abi, marketplace_abi, nft_address, marketplace_address}

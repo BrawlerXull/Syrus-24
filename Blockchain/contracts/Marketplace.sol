@@ -56,7 +56,7 @@ contract Marketplace {
             0,
             _price,
             payable(msg.sender),
-            true,
+            false,
             payable(msg.sender),
             _percentageDonated,
             _royalty
