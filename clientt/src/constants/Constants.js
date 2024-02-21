@@ -1009,5 +1009,5 @@ const nft_abi=[
   ]
 
   const nft_address='0xF7Cd9eb4Cc83d7247811557075ed06163b96e48E'
-  const marketplace_address='0xF699A88FfC3ee04e30aDacDa0715fa39452DBE43'
+  const marketplace_address='0x0ABf8A874233962f1110c2800a56916729f1E429'
   export {nft_abi, marketplace_abi, nft_address, marketplace_address}
