@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { Link } from 'react-router-dom';
 import { nft_abi, nft_address, marketplace_abi, marketplace_address } from '../constants/Constants';
+import Content from './Content';
 
 function Nav() {
   const [provider, setProvider] = useState(null);
@@ -93,9 +94,9 @@ function Nav() {
 
   return (
     <div className='navbar'>
-      <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
+      <nav className="flex items-center justify-between  flex-wrap bg-transparent pb-12">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span id='gennft-title' className="font-semibold tracking-tight text-gradient-purple-pink-2 text-5xl">GenNFT</span>
+          <span id='gennft-title' className="font-semibold text-5xl tracking-tight pr-7">GenNFT</span>
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
@@ -121,6 +122,7 @@ function Nav() {
           )}
         </div>
       </nav>
+      <Content/>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 p-10">
         {items.map((item, index) => (
           <div key={index} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
