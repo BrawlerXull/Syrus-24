@@ -121,13 +121,13 @@ contract Marketplace {
         return owned_nft[msg.sender];
     }
 
-    function getAllNft() view external returns(Item[] memory){
-        Item[] memory _items;
-        for (uint i=1; i<=itemCount;i++){
-            _items[i-1]=(items[i]);
-        }
-        return _items;
+    function getAllNft() view external returns (Item[] memory) {
+    Item[] memory _items = new Item[](itemCount);
+    for (uint i = 1; i <= itemCount; i++) {
+        _items[i - 1] = items[i];
     }
+    return _items;
+}
 
     function getProfit(uint _itemId) view internal returns(uint){
         Item memory item=items[_itemId];
