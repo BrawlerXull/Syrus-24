@@ -7,7 +7,7 @@ function Content() {
   //   setIsActive(!isActive);
   // };
   return (
-    <div className='text-white pb-6'>
+    <div className='text-white pb-6 '>
         <div className=' w-64 '>
           <ul className=' flex justify-between text-l text font-bold gap-4 '>
             <li className=' hover:bg-gray-700 p-1 pl-4 pr-4 border rounded-lg  focus:border-blue-500' >All</li>

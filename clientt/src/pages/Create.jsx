@@ -22,13 +22,13 @@ function Create() {
 
         <div className="left">
             
-            <h1>Create</h1>
+            <h1 className='text-gradient-purple-pink-2'>Create</h1>
             <div className="btns">
-            <button className='mint' onClick={mint}>
+            <button className='mint  hover:bg-gray-700 ' onClick={mint}>
                 <h2>Mint an NFt</h2>
                 <p>Create your own Collection here, just Mint it!</p>
             </button>
-            <button className='launch' onClick={launch}>
+            <button className='launch  hover:bg-gray-700' onClick={launch}>
                 <h2>Launch NFT</h2>
                 <p>Drop your Collection here!</p>
                 </button>

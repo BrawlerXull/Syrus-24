@@ -93,10 +93,10 @@ function Nav() {
   }
 
   return (
-    <div className='navbar'>
+    <div className='navbar pt-7 pl-8 pr-8'>
       <nav className="flex items-center justify-between  flex-wrap bg-transparent pb-12">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span id='gennft-title' className="font-semibold text-5xl tracking-tight pr-7">GenNFT</span>
+          <span id='gennft-title' className="font-semibold text-5xl tracking-tight pr-7 text-gradient-purple-pink-2">GenNFT</span>
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
@@ -108,7 +108,7 @@ function Nav() {
             </Link>
           </div>
           {isConnected ? (
-            <div className='flex flex-col w-28 px-6 font-semibold rounded-md border border-slate-200 text-white mt-10 hidden lg:block'>
+            <div className='flex flex-col w-28 px-6 font-semibold rounded-md border border-slate-200 text-white mt-2 hidden lg:block'>
               <span className="text-white inline-block mt-4 lg:mt-0">LogedIn</span>
               <div className='flex'>
                 <h4 className="text-white inline-block mt-4 lg:mt-0 overflow-hidden text-ellipsis text-xs	">{account}</h4>
@@ -131,7 +131,7 @@ function Nav() {
             </div>
             <div className='flex justify-center items-center flex-col text-center '>
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{parseFloat(item.price.toString())}</h5>
-              <button onClick={() => buy(item.itemId)} variant="primary" size="lg" className="text-white border rounded-lg p-3 border-white mt-3 mb-3 w-20">
+              <button onClick={() => buy(item.itemId)} variant="primary" size="lg" className=" hover:bg-gray-700 text-white border rounded-lg p-3 border-white mt-3 mb-3 w-20">
                 Buy
               </button>
             </div>
