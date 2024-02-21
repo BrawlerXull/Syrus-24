@@ -95,8 +95,7 @@ function Minting() {
       const id = await nft.tokenCount();
       await (await nft.setApprovalForAll(marketplace.address, true)).wait();
       const listingPriceWei = ethers.utils.parseEther(price.toString());
-      const listingPriceEther = parseFloat(ethers.utils.formatEther(listingPriceWei));
-      await (await marketplace.makeNFT(nft.address, id, listingPriceEther, donation, royalty)).wait();
+      await (await marketplace.makeNFT(nft.address, id, listingPriceWei, donation, royalty)).wait();
       console.log("suc");
     } catch (err) { console.log(err) }
   }
