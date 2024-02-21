@@ -46,6 +46,12 @@ contract Marketplace {
         NGO = payable(msg.sender);
     }
 
+    function giftNft(address receiver, uint _itemId){
+        require(_itemId > 0 && _itemId <= itemCount,"invalid item id");
+        require(items[_itemId].seller==msg.sender)
+        items[_itemId].nft.transferFrom(msg.sender, receiver, items[_itemId].tokenId);
+    }
+
     function makeNFT(IERC721 _nft, uint _tokenId, uint _price, uint _percentageDonated, uint _royalty) external  {
         require(_price > 0, "Price must be greater than zero");
         itemCount ++;
